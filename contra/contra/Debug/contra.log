@@ -1,0 +1,12 @@
+﻿  BaseObject.cpp
+D:\VisualStudio\contra\contra\CommonFunc.h(42,2): warning C4091: 'typedef ': ignored on left of 'Map' when no variable is declared
+  CommonFunc.cpp
+D:\VisualStudio\contra\contra\CommonFunc.h(42,2): warning C4091: 'typedef ': ignored on left of 'Map' when no variable is declared
+  game_map.cpp
+D:\VisualStudio\contra\contra\CommonFunc.h(42,2): warning C4091: 'typedef ': ignored on left of 'Map' when no variable is declared
+  main.cpp
+D:\VisualStudio\contra\contra\CommonFunc.h(42,2): warning C4091: 'typedef ': ignored on left of 'Map' when no variable is declared
+  Generating Code...
+main.obj : error LNK2019: unresolved external symbol "public: __thiscall GameMap::GameMap(void)" (??0GameMap@@QAE@XZ) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "public: __thiscall GameMap::~GameMap(void)" (??1GameMap@@QAE@XZ) referenced in function _main
+D:\VisualStudio\contra\Debug\contra.exe : fatal error LNK1120: 2 unresolved externals
