@@ -1,5 +1,5 @@
 #include "game_map.h"
-
+//tao map
 void GameMap::LoadMap( char* name) {
 	FILE* fp = NULL;
 	fopen_s(&fp, name, "rb");
