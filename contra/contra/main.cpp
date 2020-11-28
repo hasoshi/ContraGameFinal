@@ -58,7 +58,7 @@ int main(int argc, char* argv[]) {
         return -1;
 
     GameMap game_map;
-    game_map.LoadMap("map/map01.dat");
+  //  game_map.LoadMap("map/map01.dat");
     game_map.LoadTiles(g_screen);
 
     bool is_quit = false;
