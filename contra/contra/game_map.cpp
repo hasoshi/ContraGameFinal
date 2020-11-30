@@ -1,6 +1,7 @@
 #include "game_map.h"
 //tao map
-void GameMap::LoadMap( char* name) {
+
+void GameMap::LoadMap(char* name) {
 	FILE* fp = NULL;
 	fopen_s(&fp, name, "rb");
 	if (fp == NULL) { 
@@ -9,6 +10,7 @@ void GameMap::LoadMap( char* name) {
 
 	game_map_.max_x_ = 0;
 	game_map_.max_y_ = 0;
+
 	for (int i = 0; i < MAX_MAP_Y ; i++) {
 		for (int j = 0; j < MAX_MAP_X ; j++) {
 			fscanf_s(fp, "%d", &game_map_.tile[i][j]);
@@ -35,7 +37,7 @@ void GameMap::LoadMap( char* name) {
 }
 
 void GameMap::LoadTiles(SDL_Renderer* screen) {
-	char file_img[10];
+	char file_img[30];
 	FILE* fp = NULL;
 
 	for (int i = 0; i < MAX_TILES; i++) {
@@ -68,6 +70,7 @@ void GameMap::DrawMap(SDL_Renderer* screen) {
 	y2 = y1 + SCREEN_HEIGHT + (y1 == 0 ? 0 : TILE_SIZE);
 
 	for (int i = y1; i < y2; i += TILE_SIZE) {
+		map_x = game_map_.start_x_ / TILE_SIZE;
 		for (int j = x1; j < x2; j += TILE_SIZE) {
 			int val = game_map_.tile[map_y][map_x];
 			if (val > 0) {
