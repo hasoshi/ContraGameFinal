@@ -15,7 +15,7 @@ public:
 
 	enum WalkType {
 		WALK_RIGHT = 0,
-	    WALK_LEFT = 1,
+		WALK_LEFT = 1,
 	};
 
 	bool LoadImg(std::string path, SDL_Renderer* screen);
@@ -43,4 +43,4 @@ private:
 
 };
 
-#endif
+#endif#pragma once

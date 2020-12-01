@@ -8,7 +8,7 @@ MainObject::MainObject() {
 	y_val_ = 0;
 	width_frame_ = 0;
 	height_frame_ = 0;
-	status_= -1;
+	status_ = -1;
 	input_type_.left_ = 0;
 	input_type_.right_ = 0;
 	input_type_.jump_ = 0;
@@ -45,7 +45,7 @@ void MainObject::set_clips() {
 		frame_clip_[1].w = width_frame_;
 		frame_clip_[1].h = height_frame_;
 
-		frame_clip_[2].x = 2*width_frame_;
+		frame_clip_[2].x = 2 * width_frame_;
 		frame_clip_[2].y = 0;
 		frame_clip_[2].w = width_frame_;
 		frame_clip_[2].h = height_frame_;
@@ -54,7 +54,7 @@ void MainObject::set_clips() {
 		frame_clip_[3].y = 0;
 		frame_clip_[3].w = width_frame_;
 		frame_clip_[3].h = height_frame_;
-	
+
 		frame_clip_[4].x = 4 * width_frame_;
 		frame_clip_[4].y = 0;
 		frame_clip_[4].w = width_frame_;
@@ -86,7 +86,7 @@ void MainObject::Show(SDL_Renderer* des) {
 		LoadImg("img//player_right.png", des);
 	}
 
-	if (input_type_.left_ == 1 || input_type_.right_==1) {
+	if (input_type_.left_ == 1 || input_type_.right_ == 1) {
 		frame_++;
 	}
 	else {
@@ -113,20 +113,20 @@ void MainObject::HandelInputAction(SDL_Event events, SDL_Renderer* screen) {
 		switch (events.key.keysym.sym)
 		{
 		case SDLK_RIGHT:
-			{
-				status_ = WALK_RIGHT;
-				input_type_.right_ = 1; 
-				input_type_.left_ = 0;
+		{
+			status_ = WALK_RIGHT;
+			input_type_.right_ = 1;
+			input_type_.left_ = 0;
 
-			}
-			break;
+		}
+		break;
 		case SDLK_LEFT:
-			{
+		{
 			status_ = WALK_LEFT;
 			input_type_.left_ = 1;
 			input_type_.right_ = 0;
-			}
-			break;
+		}
+		break;
 		}
 	}
 	else if (events.type == SDL_KEYUP) {
@@ -174,12 +174,12 @@ void MainObject::CheckMap(Map& map_data) {
 	int height_min = height_frame_ < TILE_SIZE ? height_frame_ : TILE_SIZE;
 
 	x1 = (x_pos_ + x_val_) / TILE_SIZE;
-	x2 = (x_pos_ + x_val_ + width_frame_-1) / TILE_SIZE;
+	x2 = (x_pos_ + x_val_ + width_frame_ - 1) / TILE_SIZE;
 
 	y1 = (y_pos_) / TILE_SIZE;
 	y2 = (y_pos_ + height_min - 1) / TILE_SIZE;
 
-	if (x1 >= 0 && x2 < MAX_MAP_X && y1>=0 && y2<MAX_MAP_Y) {
+	if (x1 >= 0 && x2 < MAX_MAP_X && y1 >= 0 && y2 < MAX_MAP_Y) {
 		if (x_val_ > 0) { //doi tuong di chuyen trai
 			if (map_data.tile[y1][x2] != BLANK_TILE || map_data.tile[y2][x2] != BLANK_TILE) {
 				x_pos_ = x2 * TILE_SIZE;
