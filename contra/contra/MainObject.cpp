@@ -15,6 +15,8 @@ MainObject::MainObject() {
 	input_type_.down_ = 0;
 	input_type_.up_ = 0;
 	on_ground_ = false;
+	map_x_ = 0;
+	map_y_ = 0;
 }
 
 MainObject::~MainObject() {
@@ -93,12 +95,12 @@ void MainObject::Show(SDL_Renderer* des) {
 		frame_ = 0;
 	}
 
-	if (frame_ >= 0) {
+	if (frame_ >= 8) {
 		frame_ = 0;
 	}
 
-	rect_.x = x_pos_;
-	rect_.y = y_pos_;
+	rect_.x = x_pos_ - map_x_;
+	rect_.y = y_pos_ - map_y_;
 
 	SDL_Rect* current_clip = &frame_clip_[frame_];
 
@@ -113,35 +115,35 @@ void MainObject::HandelInputAction(SDL_Event events, SDL_Renderer* screen) {
 		switch (events.key.keysym.sym)
 		{
 		case SDLK_RIGHT:
-		{
-			status_ = WALK_RIGHT;
-			input_type_.right_ = 1;
-			input_type_.left_ = 0;
+			{
+				status_ = WALK_RIGHT;
+				input_type_.right_ = 1;
+				input_type_.left_ = 0;
 
-		}
-		break;
+			}
+			break;
 		case SDLK_LEFT:
-		{
-			status_ = WALK_LEFT;
-			input_type_.left_ = 1;
-			input_type_.right_ = 0;
-		}
-		break;
+			{
+				status_ = WALK_LEFT;
+				input_type_.left_ = 1;
+				input_type_.right_ = 0;
+			}
+			break;
 		}
 	}
 	else if (events.type == SDL_KEYUP) {
 		switch (events.key.keysym.sym)
 		{
 		case SDLK_RIGHT:
-		{
-			input_type_.right_ = 0;
-		}
-		break;
+			{
+				input_type_.right_ = 0;
+			}
+			break;
 		case SDLK_LEFT:
-		{
-			input_type_.left_ = 0;
-		}
-		break;
+			{
+				input_type_.left_ = 0;
+			}
+			break;
 		}
 	}
 }
@@ -161,6 +163,24 @@ void MainObject::DoPlayer(Map& map_data) {
 		x_val_ += PLAYER_SPEED;
 	}
 	CheckMap(map_data);
+	CenterEntityOnMap(map_data);
+}
+
+void MainObject::CenterEntityOnMap(Map& map_data) {
+	map_data.start_x_ = x_pos_ - (SCREEN_WIDTH / 2);
+	if (map_data.start_x_ < 0) {
+		map_data.start_x_ = 0;
+	}
+	else if (map_data.start_x_ + SCREEN_WIDTH >= map_data.max_x_) {
+		map_data.start_x_ = map_data.max_x_ - SCREEN_WIDTH;
+	}
+	map_data.start_y_ = y_pos_ - (SCREEN_WIDTH / 2);
+	if (map_data.start_y_ < 0) {
+		map_data.start_y_ = 0;
+	}
+	else if (map_data.start_y_ + SCREEN_HEIGHT >= map_data.max_y_) {
+		map_data.start_y_ = map_data.max_y_ - SCREEN_HEIGHT;
+	}
 }
 
 void MainObject::CheckMap(Map& map_data) {

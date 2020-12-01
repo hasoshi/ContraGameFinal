@@ -1,1 +1,22 @@
-﻿  contra.vcxproj -> D:\VisualStudio\ContraGameFinal\contra\Debug\contra.exe
+﻿  MainObject.cpp
+D:\VisualStudio\ContraGameFinal\contra\contra\CommonFunc.h(39,2): warning C4091: 'typedef ': ignored on left of 'Input' when no variable is declared
+D:\VisualStudio\ContraGameFinal\contra\contra\CommonFunc.h(52,2): warning C4091: 'typedef ': ignored on left of 'Map' when no variable is declared
+D:\VisualStudio\ContraGameFinal\contra\contra\MainObject.cpp(102,19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\VisualStudio\ContraGameFinal\contra\contra\MainObject.cpp(103,19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\VisualStudio\ContraGameFinal\contra\contra\MainObject.cpp(153,15): warning C4305: '+=': truncation from 'double' to 'float'
+D:\VisualStudio\ContraGameFinal\contra\contra\MainObject.cpp(170,29): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\VisualStudio\ContraGameFinal\contra\contra\MainObject.cpp(177,29): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\VisualStudio\ContraGameFinal\contra\contra\MainObject.cpp(196,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\VisualStudio\ContraGameFinal\contra\contra\MainObject.cpp(197,44): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\VisualStudio\ContraGameFinal\contra\contra\MainObject.cpp(199,16): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\VisualStudio\ContraGameFinal\contra\contra\MainObject.cpp(200,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\VisualStudio\ContraGameFinal\contra\contra\MainObject.cpp(205,17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\VisualStudio\ContraGameFinal\contra\contra\MainObject.cpp(212,23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\VisualStudio\ContraGameFinal\contra\contra\MainObject.cpp(222,16): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\VisualStudio\ContraGameFinal\contra\contra\MainObject.cpp(223,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\VisualStudio\ContraGameFinal\contra\contra\MainObject.cpp(225,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\VisualStudio\ContraGameFinal\contra\contra\MainObject.cpp(226,45): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\VisualStudio\ContraGameFinal\contra\contra\MainObject.cpp(231,17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\VisualStudio\ContraGameFinal\contra\contra\MainObject.cpp(239,23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\VisualStudio\ContraGameFinal\contra\contra\MainObject.cpp(251,43): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  contra.vcxproj -> D:\VisualStudio\ContraGameFinal\contra\Debug\contra.exe
