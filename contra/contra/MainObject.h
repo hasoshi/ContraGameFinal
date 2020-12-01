@@ -1,6 +1,6 @@
 #ifndef MAIN_OBJECT_H_
 #define MAIN_OBJECT_H
-
+//tao nhan vat
 #include "CommonFunc.h"
 #include "BaseObject.h"
 

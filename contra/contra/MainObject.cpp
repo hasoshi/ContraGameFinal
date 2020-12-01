@@ -1,5 +1,5 @@
 #include "MainObject.h"
-
+//tao nhan vat
 MainObject::MainObject() {
 	frame_ = 0;
 	x_pos_ = 0;
