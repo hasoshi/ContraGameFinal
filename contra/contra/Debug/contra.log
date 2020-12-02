@@ -1,1 +1,4 @@
-﻿  contra.vcxproj -> D:\VisualStudio\ContraGameFinal\contra\Debug\contra.exe
+﻿  main.cpp
+D:\thuhang\AndroidStudioProjects\ContraGameFinal\contra\contra\CommonFunc.h(39,2): warning C4091: 'typedef ': ignored on left of 'Input' when no variable is declared
+D:\thuhang\AndroidStudioProjects\ContraGameFinal\contra\contra\CommonFunc.h(52,2): warning C4091: 'typedef ': ignored on left of 'Map' when no variable is declared
+  contra.vcxproj -> D:\thuhang\AndroidStudioProjects\ContraGameFinal\contra\Debug\contra.exe
