@@ -17,6 +17,8 @@ MainObject::MainObject() {
 	on_ground_ = false;
 	map_x_ = 0;
 	map_y_ = 0;
+
+	come_back_time_ = 0;
 }
 
 MainObject::~MainObject() {
@@ -99,14 +101,17 @@ void MainObject::Show(SDL_Renderer* des) {
 		frame_ = 0;
 	}
 
-	rect_.x = x_pos_ - map_x_;
-	rect_.y = y_pos_ - map_y_;
+	if (come_back_time_ == 0) {
+		rect_.x = x_pos_ - map_x_;
+		rect_.y = y_pos_ - map_y_;
 
-	SDL_Rect* current_clip = &frame_clip_[frame_];
+		SDL_Rect* current_clip = &frame_clip_[frame_];
 
-	SDL_Rect renderQuad = { rect_.x, rect_.y, width_frame_, height_frame_ };
+		SDL_Rect renderQuad = { rect_.x, rect_.y, width_frame_, height_frame_ };
 
-	SDL_RenderCopy(des, p_object_, current_clip, &renderQuad);
+		SDL_RenderCopy(des, p_object_, current_clip, &renderQuad);
+
+	}
 
 }
 
@@ -146,24 +151,61 @@ void MainObject::HandelInputAction(SDL_Event events, SDL_Renderer* screen) {
 			break;
 		}
 	}
+	//nhay len
+	if (events.type == SDL_MOUSEBUTTONDOWN) {
+		if (events.button.button == SDL_BUTTON_RIGHT) {
+			input_type_.jump_ = 1;
+		}
+	}
 }
 
 void MainObject::DoPlayer(Map& map_data) {
-	x_val_ = 0;
-	y_val_ += 0.8;
 
-	if (y_val_ >= MAX_FALL_SPEED) {
-		y_val_ = MAX_FALL_SPEED;
+	if (come_back_time_ == 0) {
+		x_val_ = 0;
+		y_val_ += 0.8;
+
+		if (y_val_ >= MAX_FALL_SPEED) {
+			y_val_ = MAX_FALL_SPEED;
+		}
+
+		if (input_type_.left_ == 1) {
+			x_val_ -= PLAYER_SPEED;
+		}
+		else if (input_type_.right_ == 1) {
+			x_val_ += PLAYER_SPEED;
+		}
+		//nhay
+		if (input_type_.jump_ == 1) {
+			if (on_ground_ == true) {
+				y_val_ = -PLAYER_JUMP_VAL;
+			}
+			on_ground_ = false;
+			input_type_.jump_ = 0;
+		}
+
+		CheckMap(map_data);
+		CenterEntityOnMap(map_data);
 	}
 
-	if (input_type_.left_ == 1) {
-		x_val_ -= PLAYER_SPEED;
+	if (come_back_time_ > 0) {
+		come_back_time_--;
+		if (come_back_time_ == 0) { //reset again
+			on_ground_ = false;
+			if (x_pos_ > 256) {
+				x_pos_ -= 256; // 4 tile map
+				map_x_ -= 256;
+			}
+			else {
+				x_pos_ = 0;
+			}
+			
+			y_pos_ = 0;
+			x_val_ = 0;
+			y_val_ = 0;
+
+		}
 	}
-	else if (input_type_.right_ == 1) {
-		x_val_ += PLAYER_SPEED;
-	}
-	CheckMap(map_data);
-	CenterEntityOnMap(map_data);
 }
 
 void MainObject::CenterEntityOnMap(Map& map_data) {
@@ -249,5 +291,10 @@ void MainObject::CheckMap(Map& map_data) {
 	}
 	else if (x_pos_ + width_frame_ > map_data.max_x_) {
 		x_pos_ = map_data.max_x_ - width_frame_ - 1;
+	}
+
+	if (y_pos_ > map_data.max_y_) {
+		come_back_time_ = 60;
+
 	}
 }

@@ -9,6 +9,7 @@
 #define GRAVITY_SPEED 0.8
 #define MAX_FALL_SPEED 10
 #define PLAYER_SPEED 8
+#define PLAYER_JUMP_VAL 18
 
 class MainObject : public BaseObject {
 public:
@@ -55,6 +56,9 @@ private:
 
 	int map_x_;
 	int map_y_;
+
+	//xu ly roi xuong vuc
+	int  come_back_time_;
 };
 
-#endif#pragma once
+#endif

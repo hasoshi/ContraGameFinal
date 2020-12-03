@@ -4,6 +4,7 @@
 #include "game_map.h"
 #include "MainObject.h"
 #include "TextObject.h"
+#include "ImpTimer.h"
 
 BaseObject g_background;
 TTF_Font* font_time = NULL;
@@ -14,7 +15,7 @@ bool InitData() {
 	if (ret < 0)
 		return false;
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
-	g_window = SDL_CreateWindow("Game contra - Thu Hang - Khanh Linh - Thu Ha", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+	g_window = SDL_CreateWindow("Game contra - HHL", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 	if (g_window == NULL) {
 		success = false;
 	}
@@ -65,6 +66,11 @@ void close() {
 
 int main(int argc, char* argv[]) {
 
+	//imptimer
+
+	ImpTimer fps_timer;
+
+
 	if (InitData() == false)
 		return -1;
 	if (LoadBackground() == false)
@@ -91,6 +97,7 @@ int main(int argc, char* argv[]) {
 
 	bool is_quit = false;
 	while (!is_quit) {
+		fps_timer.start(); //fps
 		while (SDL_PollEvent(&g_event) != 0) {
 			if (g_event.type == SDL_QUIT) {
 				is_quit = true;
@@ -135,7 +142,17 @@ int main(int argc, char* argv[]) {
 		}
 		SDL_RenderPresent(g_screen);
 
+		int real_imp_time = fps_timer.get_ticks();
+		int time_one_frame = 1000 / FRAME_PER_SECOND; //ms
+
+		if (real_imp_time < time_one_frame) {
+			int delay_time = time_one_frame - real_imp_time;
+			if(delay_time>=0)
+			    SDL_Delay(delay_time);
+		}
 	}
+
+
 	close();
 	return 0;
 }
