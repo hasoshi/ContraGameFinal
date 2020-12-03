@@ -1,4 +1,8 @@
-﻿  main.cpp
+﻿  TextObject.cpp
 D:\thuhang\AndroidStudioProjects\ContraGameFinal\contra\contra\CommonFunc.h(39,2): warning C4091: 'typedef ': ignored on left of 'Input' when no variable is declared
 D:\thuhang\AndroidStudioProjects\ContraGameFinal\contra\contra\CommonFunc.h(52,2): warning C4091: 'typedef ': ignored on left of 'Map' when no variable is declared
+  main.cpp
+D:\thuhang\AndroidStudioProjects\ContraGameFinal\contra\contra\CommonFunc.h(39,2): warning C4091: 'typedef ': ignored on left of 'Input' when no variable is declared
+D:\thuhang\AndroidStudioProjects\ContraGameFinal\contra\contra\CommonFunc.h(52,2): warning C4091: 'typedef ': ignored on left of 'Map' when no variable is declared
+  Generating Code...
   contra.vcxproj -> D:\thuhang\AndroidStudioProjects\ContraGameFinal\contra\Debug\contra.exe

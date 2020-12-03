@@ -80,3 +80,12 @@ void TextObject::RenderText(SDL_Renderer* screen,
 	}
 	SDL_RenderCopyEx(screen, texture_, clip, &renderQuad, angle, center, flip);
 }
+
+
+
+
+
+
+
+
+#include "TextObject.h"
