@@ -4,6 +4,7 @@
 #include "CommonFunc.h"
 #include <string>
 
+
 class TextObject
 {
 public:

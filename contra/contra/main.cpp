@@ -82,6 +82,13 @@ int main(int argc, char* argv[]) {
 	TextObject time_game;
 	time_game.SetColor(TextObject::WHITE_TEXT);
 
+	TextObject mark_game;
+	mark_game.SetColor(TextObject::WHITE_TEXT);
+	UINT mark_value = 0;
+
+	TextObject money_count;
+	money_count.SetColor(TextObject::WHITE_TEXT);
+
 	bool is_quit = false;
 	while (!is_quit) {
 		while (SDL_PollEvent(&g_event) != 0) {
