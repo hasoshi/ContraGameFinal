@@ -1,4 +1,4 @@
-//#include "stdafx.h"
+
 #include "TextObject.h"
 #include <SDL_ttf.h>
 #include <SDL.h>
@@ -88,4 +88,3 @@ void TextObject::RenderText(SDL_Renderer* screen,
 
 
 
-#include "TextObject.h"

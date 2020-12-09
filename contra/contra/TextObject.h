@@ -44,4 +44,4 @@ private:
 	int height_;
 };
 
-#endif // !TEXT_OBJECT_H_
+#endif // !TEXT_OBJECT_H_#pragma once

@@ -25,4 +25,4 @@ private:
 	bool is_started_;
 
 };
-#endif // !IMP_TIMER_H
+#endif // !IMP_TIMER_H#pragma once
