@@ -8,6 +8,7 @@
 #include <SDL_image.h>
 #include <SDL_mixer.h>
 #include <SDL_ttf.h>
+#include <vector>
 
 static SDL_Window* g_window = NULL;
 static SDL_Renderer* g_screen = NULL;
@@ -28,6 +29,8 @@ const int RENDER_DRAW_COLOR = 0Xff;
 #define TILE_SIZE 64
 #define MAX_MAP_X 400
 #define MAX_MAP_Y 10
+
+#define STATE_MONEY 4
 
 typedef struct Input {
 	int left_;
